@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="question-detail">
+    <h1 class="mb-4">{{ question.title }}</h1>
+    <div class="card mb-4">
+        <div class="card-body">
+            <p class="card-text">{{ question.content }}</p>
+            <div class="text-muted">
+                Posted on {{ question.created_at.strftime('%B %d, %Y at %H:%M') }}
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-3">{{ question.answers|length }} Answers</h3>
+
+    {% for answer in question.answers %}
+    <div class="card mb-3 {% if answer.is_ai_generated %}border-primary{% endif %}">
+        <div class="card-body">
+            {% if answer.is_ai_generated %}
+            <div class="ai-badge mb-2">
+                <span class="badge bg-primary">AI Generated Response</span>
+            </div>
+            {% endif %}
+            <p class="card-text">{{ answer.content }}</p>
+            <div class="text-muted">
+                Answered on {{ answer.created_at.strftime('%B %d, %Y at %H:%M') }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>Add Your Answer</h4>
+            <form method="POST">
+                <div class="mb-3">
+                    <textarea class="form-control" name="content" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Answer</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

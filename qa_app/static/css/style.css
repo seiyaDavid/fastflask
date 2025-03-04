@@ -1,0 +1,35 @@
+.question-card {
+    transition: transform 0.2s;
+}
+
+.question-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ai-badge {
+    margin-bottom: 1rem;
+}
+
+.border-primary {
+    border-width: 2px !important;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+}
+
+.badge {
+    padding: 0.5em 1em;
+    border-radius: 15px;
+}
